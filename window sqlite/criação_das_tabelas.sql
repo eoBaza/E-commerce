@@ -38,16 +38,22 @@ create table Sessoes(
     data_fim text not null,
     FOREIGN key (id_funcionario) references Funcionario(id_funcionario)
 );
-
-create table Cliente(
-    id_cliente integer Primary Key AUTOINCREMENT,
-    nome_cliente text not null,
-    cpf text not null,
-    telefone text not null,
-    endereco text not null
+    
+CREATE TABLE Cliente (
+    id_cliente INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome_cliente TEXT NOT NULL,
+    cpf TEXT NOT NULL,
+    telefone TEXT NOT NULL
 );
 
-Create table Carrinho(
-
-
+Create table EnderecoCliente(
+    id_endereco integer Primary Key AUTOINCREMENT,
+    id_cliente integer not null,
+    logradouro text not null,
+    bairro text not null,
+    uf text not null,
+    estado text not null,
+    cep text not null,
+    Numero integer not null,
+    FOREIGN key (id_cliente) references Cliente(id_cliente)
 );
