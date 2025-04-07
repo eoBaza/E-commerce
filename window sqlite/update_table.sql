@@ -1,0 +1,1 @@
+update Produto set nome_produto = 'Televisao Smart 43' where id_produto = 2;
