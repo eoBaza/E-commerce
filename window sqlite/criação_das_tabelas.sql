@@ -3,9 +3,9 @@ create table Funcionario (
     id_funcionario integer PRIMARY Key AUTOINCREMENT,
     nome text not null,
     matricula text not null,
-    id_cargo integer  not null,
+    id_cargofuncao integer  not null,
     senha text not null,
-    FOREIGN key (id_cargo) references Cargo(id_cargo)
+    FOREIGN key (id_cargofuncao) references CargoFuncao(id_cargofuncao)
 );
 
 create table Cargo(
@@ -56,4 +56,18 @@ Create table EnderecoCliente(
     cep text not null,
     Numero integer not null,
     FOREIGN key (id_cliente) references Cliente(id_cliente)
+);
+
+Create table Funcao (
+    id_funcao integer PRIMARY key AUTOINCREMENT,
+    nome_funcao text not null
+);
+
+Create table CargoFuncao (
+	id_cargofuncao integer not null,
+    id_cargo integer not null, 
+    id_funcao integer not null,
+    PRIMARY key (id_cargo, id_funcao, id_cargofuncao),
+    FOREIGN key (id_cargo) references Cargo(id_cargo),
+    FOREIGN key (id_funcao) references Funcao(id_funcao)
 );
