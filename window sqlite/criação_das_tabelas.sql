@@ -34,8 +34,8 @@ create table Pedido(
 create table Sessoes(
     id_sessao integer Primary Key AUTOINCREMENT,
     id_funcionario integer not null,
-    data_inicio text not null,
-    data_fim text not null,
+    data_inicio text DEFAULT (datetime('now')),
+    data_fim text,
     FOREIGN key (id_funcionario) references Funcionario(id_funcionario)
 );
     
@@ -70,4 +70,17 @@ Create table CargoFuncao (
     PRIMARY key (id_cargo, id_funcao, id_cargofuncao),
     FOREIGN key (id_cargo) references Cargo(id_cargo),
     FOREIGN key (id_funcao) references Funcao(id_funcao)
+);
+
+create table Carrinho (
+    id_carrinho integer primary key autoincrement,
+    id_funcionario integer, 
+    id_cliente integer,
+    id_produto integer,
+    quantidade integer,
+    preco_total real,
+    data_criacao text default (datetime('now')),
+    FOREIGN key (id_funcionario) references Funcionario(id_funcionario),
+    FOREIGN key (id_cliente) references Cliente(id_cliente),
+    FOREIGN key (id_produto) references Produto(id_produto)
 );
