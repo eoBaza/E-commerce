@@ -72,15 +72,14 @@ Create table CargoFuncao (
     FOREIGN key (id_funcao) references Funcao(id_funcao)
 );
 
-create table Carrinho (
-    id_carrinho integer primary key autoincrement,
-    id_funcionario integer, 
-    id_cliente integer,
-    id_produto integer,
-    quantidade integer,
-    preco_total real,
-    data_criacao text default (datetime('now')),
-    FOREIGN key (id_funcionario) references Funcionario(id_funcionario),
-    FOREIGN key (id_cliente) references Cliente(id_cliente),
-    FOREIGN key (id_produto) references Produto(id_produto)
+CREATE TABLE Carrinho (
+  id_carrinho INTEGER PRIMARY KEY AUTOINCREMENT,
+  id_funcionario INTEGER,
+  id_cliente INTEGER,
+  produtos TEXT, 
+  quantidade_total INTEGER,
+  preco_total REAL,
+  data_criacao TEXT DEFAULT (datetime('now')),
+  FOREIGN KEY (id_funcionario) REFERENCES Funcionario(id_funcionario),
+  FOREIGN KEY (id_cliente) REFERENCES Cliente(id_cliente)
 );
