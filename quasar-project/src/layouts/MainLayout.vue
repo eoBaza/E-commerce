@@ -69,7 +69,7 @@
           />
           </template>
         </q-input>
-          <q-btn flat dense label="Login" @click="abrirLogin" />
+          <q-btn flat dense label="Login" @click="abrirLogin" v-if="!userlogado" />
           <LoginModal ref="loginDialog" @user-logado="handleUserLogado" />
 
           <!-- Cliente Logado exibido no header -->
